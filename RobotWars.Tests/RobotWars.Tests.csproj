@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34D5C541-FB26-422B-8C9F-D31EF033D923}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RobotWars.Tests</RootNamespace>
+    <AssemblyName>RobotWars.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="when_running_battle_from_arena_with_two_robots_with_new_route.cs" />
+    <Compile Include="Doubles\ExceptionThrowingArenaParser.cs" />
+    <Compile Include="when_running_battle_from_view_model_with_exception.cs" />
+    <Compile Include="Doubles\InputCapturingArenaParser.cs" />
+    <Compile Include="when_running_battle_from_view_model.cs" />
+    <Compile Include="when_building_route_with_null_steps.cs" />
+    <Compile Include="when_running_battle_from_arena_with_invalid_route.cs" />
+    <Compile Include="Helpers\Catch.cs" />
+    <Compile Include="Helpers\context_specification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="when_running_battle_from_arena_with_two_robots.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RobotWars.Battle\RobotWars.Domain.csproj">
+      <Project>{4AC311F7-469D-4C44-92F3-4C0784293242}</Project>
+      <Name>RobotWars.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotWars.InputParsers\RobotWars.InputParsers.csproj">
+      <Project>{AE24687D-9108-4798-98A9-4297AC4B7DF9}</Project>
+      <Name>RobotWars.InputParsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotWars.ViewModel\RobotWars.ViewModel.csproj">
+      <Project>{C28D6685-761F-48F9-AD6D-AF6ECCF4CFEB}</Project>
+      <Name>RobotWars.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotWars\RobotWars.csproj">
+      <Project>{B33579F4-1F1D-4A30-BF2F-90D745E2E280}</Project>
+      <Name>RobotWars</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,41 @@
+﻿using System;
+using NUnit.Framework;
+using RobotWars.Battle;
+using RobotWars.InputParser.Tests.Builders;
+using RobotWars.InputParsers;
+using RobotWars.Tests.Helpers;
+
+namespace RobotWars.InputParser.Tests
+{
+    public class when_parsing_route_from_null_text : ContextSpecification
+    {
+        private Exception _exception;
+        private String _routeText;
+        private Route _route;
+        private IRouteParser _routeParser;
+
+        protected override void Establish()
+        {
+            _routeText = null;
+            _routeParser = RouteParserBuilder.Build();
+            _route = null;
+        }
+
+        protected override void Because()
+        {
+            _exception = Catch.Exception(() => _route = _routeParser.Parse(_routeText));
+        }
+
+        [Test]
+        public void should_throw_an_argumentexception()
+        {
+            Assert.That(_exception, Is.TypeOf<ArgumentNullException>());
+        }
+
+        [Test]
+        public void should_not_set_route()
+        {
+            Assert.That(_route, Is.Null);
+        }
+    }
+}

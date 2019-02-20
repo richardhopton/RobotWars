@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A9D6543-D737-4538-9554-551733001E31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RobotWars.InputParser.Tests</RootNamespace>
+    <AssemblyName>RobotWars.InputParser.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builders\ArenaParserBuilder.cs" />
+    <Compile Include="Builders\GridSizeParserBuilder.cs" />
+    <Compile Include="Builders\PositionParserBuilder.cs" />
+    <Compile Include="Builders\RobotParserBuilder.cs" />
+    <Compile Include="Builders\RouteParserBuilder.cs" />
+    <Compile Include="when_parsing_a_route_from_text_with_backwards_routestep.cs" />
+    <Compile Include="when_parsing_position_from_text_with_invalid_cardinalcompasspoint.cs" />
+    <Compile Include="when_parsing_arena_from_input_with_incorrect_number_of_lines.cs" />
+    <Compile Include="Doubles\DownRouteStep.cs" />
+    <Compile Include="Doubles\UpDownRouteStepResolver.cs" />
+    <Compile Include="Doubles\UpRouteStep.cs" />
+    <Compile Include="when_parsing_arena_from_input_with_multiple_robots.cs" />
+    <Compile Include="when_parsing_arena_from_input_with_one_robot.cs" />
+    <Compile Include="when_parsing_arena_from_null_input.cs" />
+    <Compile Include="when_parsing_arena_from_input_with_too_few_lines.cs" />
+    <Compile Include="when_parsing_gridsize_from_text.cs" />
+    <Compile Include="when_parsing_gridsize_from_text_with_invalid_width.cs" />
+    <Compile Include="when_parsing_gridsize_from_text_with_invalid_height.cs" />
+    <Compile Include="when_parsing_gridsize_from_text_with_too_few_segments.cs" />
+    <Compile Include="when_parsing_gridsize_from_text_with_too_many_segments.cs" />
+    <Compile Include="when_parsing_gridsize_from_whitespace_only_text.cs" />
+    <Compile Include="when_parsing_gridsize_from_null_text.cs" />
+    <Compile Include="when_parsing_gridsize_from_empty_text.cs" />
+    <Compile Include="when_parsing_position_from_text.cs" />
+    <Compile Include="when_parsing_position_from_text_with_unknown_cardinalcompasspoint.cs" />
+    <Compile Include="when_parsing_position_from_text_with_invalid_y_coordinate.cs" />
+    <Compile Include="when_parsing_position_from_text_with_too_many_segments.cs" />
+    <Compile Include="when_parsing_position_from_text_with_too_few_segments.cs" />
+    <Compile Include="when_parsing_position_from_empty_text.cs" />
+    <Compile Include="when_parsing_position_from_text_with_invalid_x_coordinate.cs" />
+    <Compile Include="when_parsing_route_from_text_with_unknown_routestep.cs" />
+    <Compile Include="when_parsing_position_from_null_text.cs" />
+    <Compile Include="when_parsing_route_from_null_text.cs" />
+    <Compile Include="when_parsing_route_from_text.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="when_parsing_route_from_empty_text.cs" />
+    <Compile Include="when_parsing_position_from_whitespace_only_text.cs" />
+    <Compile Include="when_parsing_route_from_whitespace_only_text.cs" />
+    <Compile Include="when_parsing_route_with_custom_routestepresolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RobotWars.Battle\RobotWars.Domain.csproj">
+      <Project>{4AC311F7-469D-4C44-92F3-4C0784293242}</Project>
+      <Name>RobotWars.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotWars.InputParsers\RobotWars.InputParsers.csproj">
+      <Project>{AE24687D-9108-4798-98A9-4297AC4B7DF9}</Project>
+      <Name>RobotWars.InputParsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotWars.Tests\RobotWars.Tests.csproj">
+      <Project>{34D5C541-FB26-422B-8C9F-D31EF033D923}</Project>
+      <Name>RobotWars.Tests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
